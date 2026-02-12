@@ -1,14 +1,21 @@
-# Use a lightweight implementation of Java 21
-FROM eclipse-temurin:21-jdk-alpine
-
-# Set working directory
+# --- STAGE 1: BUILD THE APPLICATION ---
+FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
 WORKDIR /app
 
-# Copy the build file (target/wallet-service-0.0.1-SNAPSHOT.jar)
-# Note: We will build this in a moment
-COPY target/*.jar app.jar
+# Copy the project files
+COPY . .
 
-# Expose the port
+# Build the application (skipping tests to save time)
+RUN mvn clean package -DskipTests
+
+# --- STAGE 2: RUN THE APPLICATION ---
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+
+# Copy the JAR file from the 'build' stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Expose port 8080
 EXPOSE 8080
 
 # Run the jar
