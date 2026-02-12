@@ -24,3 +24,8 @@ A high-performance, double-entry ledger wallet service designed for scalability 
     POST /api/wallet/transaction
     GET /api/wallet/{id}/balance
 
+## 🚀 Live Demo
+**Base URL:** https://dino-wallet-service-zfen.onrender.com
+*(Note: Hosted on Render Free Tier. Please allow 50 seconds for the initial cold start if the server is asleep.)*
+
+
