@@ -4,7 +4,7 @@
 A high-performance, double-entry ledger wallet service designed for scalability and auditability.
 
 ## 🛠 Tech Stack
-* **Language:** Java 17 (Spring Boot 3)
+* **Language:** Java 21 (Spring Boot 3)
 * **Database:** PostgreSQL
 * **Architecture:** Double-Entry Ledger (Immutable Journal)
 
@@ -23,3 +23,4 @@ A high-performance, double-entry ledger wallet service designed for scalability 
 3.  **Test:**
     POST /api/wallet/transaction
     GET /api/wallet/{id}/balance
+
